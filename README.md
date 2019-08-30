@@ -1,44 +1,4 @@
-## Run PHP without browser
-
-
-You can run PHP Script from Linux terminal without the need of any browser. Run the PHP file located at <code>/var/www/html/infophp.php</code> in Linux Command Line as
-
-```bash
-php -f /var/www/html/infophp.php | less
-```
-
-Or
-
-```bash
-php -f /var/www/html/infophp.php
-```
-
-Here option <code>-f</code> parse and execute the file that follows the command.
-
-
-## Run PHP executable
-
-You can run a PHP script simply as, if it is a shell script. First Create a PHP sample script in your current working directory.
-
-```bash
-echo -e '#!/usr/bin/php\n<?php phpinfo(); ?>' > phpscript.php
-```
-
-Notice we used <code>#!/usr/bin/php</code> in the first line of this PHP script as we use to do in shell script <code>(/bin/bash)</code>. The first line <code>#!/usr/bin/php</code> tells the Linux Command-Line to parse this script file to PHP Interpreter.
-
-Second make it executable as
-
-```shell
-chmod 755 phpscript.php
-```
-
-and run it as,
-
-```shell
-./phpscript.php
-```
-
-## PHP script as a daemon/service
+## PHP script as a Daemon/Service
 
 Assume we need to permanently run a PHP CLI script, it need to run as a daemon/service. It will support service <code>start</code> <code>stop</code> commands. Okay lets start.
 
@@ -124,3 +84,43 @@ Change <code>NAME</code>, <code>DESCRIPTION</code>, <code>DAEMON</code>, and <co
 Once done you can start the service by running <code>/etc/init.d/myPHPservice</code> start and stop it by running <code>/etc/init.d/myservice stop</code>. Restarting is also possible by running <code>/etc/init.d/myservice restart</code>.
 
 Verify the running of the daemon by checking the contents of the created PID file: <code>cat /var/run/myservice.pid</code> — It should contain a process ID.
+
+## Run PHP without browser
+
+
+You can run PHP Script from Linux terminal without the need of any browser. Run the PHP file located at <code>/var/www/html/infophp.php</code> in Linux Command Line as
+
+```bash
+php -f /var/www/html/infophp.php | less
+```
+
+Or
+
+```bash
+php -f /var/www/html/infophp.php
+```
+
+Here option <code>-f</code> parse and execute the file that follows the command.
+
+
+## Run PHP executable
+
+You can run a PHP script simply as, if it is a shell script. First Create a PHP sample script in your current working directory.
+
+```bash
+echo -e '#!/usr/bin/php\n<?php phpinfo(); ?>' > phpscript.php
+```
+
+Notice we used <code>#!/usr/bin/php</code> in the first line of this PHP script as we use to do in shell script <code>(/bin/bash)</code>. The first line <code>#!/usr/bin/php</code> tells the Linux Command-Line to parse this script file to PHP Interpreter.
+
+Second make it executable as
+
+```shell
+chmod 755 phpscript.php
+```
+
+and run it as,
+
+```shell
+./phpscript.php
+```
